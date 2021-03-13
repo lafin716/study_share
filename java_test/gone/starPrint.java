@@ -1,3 +1,5 @@
+package java_test.gone;
+
 public class starPrint {
     public static void main(String[] args) {
         /*

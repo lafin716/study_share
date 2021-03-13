@@ -1,3 +1,5 @@
+package java_test.gone;
+
 /**
  * ReversePiramidPrint
  */
