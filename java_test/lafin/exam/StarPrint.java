@@ -1,7 +1,7 @@
-package com.lafin.knowledge.exam;
+package java_test.lafin.exam;
 
 /**
- * 입문 기초 별찍기 클래스
+ * 입문 기초 별 찍기 클래스
  * 아주 간단한 기초 문법과 사고력 기르기 시작에 좋은 방법
  * @author laifn
  */
@@ -251,6 +251,53 @@ class StarPrint{
         System.out.println(LINE);
     }
 
+    // 달팽이 형태
+    // n * n 형태로 출력 인자값을 받아서 처리한다
+    /**
+        출력
+        ********************
+                           *
+        ****************** *
+        *                * *
+        * ************** * *
+        * *            * * *
+        * * ********** * * *
+        * * *        * * * *
+        * * * ****** * * * *
+        * * * *    * * * * *
+        * * * * *  * * * * *
+        * * * * **** * * * *
+        * * * *      * * * *
+        * * * ******** * * *
+        * * *          * * *
+        * * ************ * *
+        * *              * *
+        * **************** *
+        *                  *
+        ********************
+    */
+    public void snail(int size){
+        System.out.println("[달팽이 형태 출력]");
+        System.out.println(LINE);
+        
+        // 크기를 size*size 으로 리사이징
+        setSize(size, size);
+        
+        // 
+        for(int i = 0; i < height; i++){
+            
+            // 
+            for(int j = 0; j < width; j++){
+                System.out.print("*");
+            }
+
+            System.out.println();
+        }
+
+        System.out.println(LINE);
+    }
+    
+
     public static void main(String[] args) {
         
         System.out.println("별 찍기 시작");
@@ -273,6 +320,9 @@ class StarPrint{
 
         // 모래시계
         sp.hourglass();
+
+        // 달팽이
+        sp.snail(15);
 
     }
 }
