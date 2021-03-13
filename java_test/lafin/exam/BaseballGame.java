@@ -22,6 +22,9 @@ public class BaseballGame {
 
     // 플레이어가 시도할 수 있는 횟수
     int chance;
+
+    // 현재 시도 중인 기회
+    int turnCount;
     
     // 임의로 생성 될 숫자 배열
     int[] throwBalls;
@@ -38,13 +41,15 @@ public class BaseballGame {
         System.out.print("초기화...");
         this.ballCount = ballCount;
         this.chance = ballCount;
-        this.total = ballCount * 3;
+        this.turnCount = 1;
+        this.total = ballCount * 2;        
         this.throwBalls = new int[ballCount];
         this.playerBalls = new int[ballCount];
         System.out.println("완료!");
 
         // 0 ~ n 사이의 랜덤한 숫자 생성
-        System.out.print(total + "개의 랜덤한 공을 생성합니다...");
+        System.out.print("숫자는 1 ~ " + total + " 범위로 생성합니다...");
+        System.out.print(ballCount + "개의 랜덤한 공을 생성합니다...");        
         makeRandomArray();
         System.out.println("완료!");
     }
@@ -138,7 +143,6 @@ public class BaseballGame {
         System.out.println("시작!");
 
         // 턴 수를 체크한다
-        int turnCount = 1;
         while(turnCount <= chance){
             System.out.println("[############### " + turnCount + "번째 시도! ###############]");
             turn();
@@ -173,6 +177,11 @@ public class BaseballGame {
                     int answer = input.nextInt();                    
 
                     if(answer > 0){
+                        if(answer > total){
+                            System.err.println("제일 큰 수인 " + total + "을 넘을 수 없습니다!");
+                            --i;
+                            continue;
+                        }
 
                         // 중복 체크
                         if(isExistBall(playerBalls, answer)){
@@ -180,10 +189,7 @@ public class BaseballGame {
                             --i;
                         }else{
                             playerBalls[i-1] = answer;
-                        }                        
-                    }else if(answer <= total){
-                        System.err.println("제일 큰 수인 " + i + " 넘을 수 없습니다!");
-                        --i;
+                        }
                     }else{
                         System.err.println("공은 0보다 큰 수를 입력해야 합니다!");
                         --i;
@@ -192,8 +198,13 @@ public class BaseballGame {
                     input.nextLine();
                 }
 
-                if(checkBalls()){
-                    finish();
+                int result = checkBalls();
+                
+                if(result == 3){
+                    System.out.println("아쉬워요 ㅠ_ ㅠ 다시 ㄱㄱ~!");
+                }else{
+                    System.out.println("아예 없는 수를 입력했으니 이번 기회는 무효!");
+                    turnCount--;
                 }
 
                 break;
@@ -212,8 +223,7 @@ public class BaseballGame {
     
 
     // 정답확인
-    public boolean checkBalls(){
-        boolean result = false;
+    public int checkBalls(){
         int strikeCount = 0;
         int failCount = 0;
         
@@ -236,26 +246,19 @@ public class BaseballGame {
             }
         }
 
-        // 전부 스트라이크인 경우 true
-        if(strikeCount == ballCount){
-            result = true;
-        }
-
         System.out.println();
         System.out.println("[########## 채점결과 ##########]");
         System.out.println("스트라이크 : " + strikeCount);
         System.out.println("볼 : " + failCount);
         System.out.println("##############################");
-
-        if(result){
-            System.out.println("축하합니다!! 당신이 이겼어요~~! \\^0 ^/");
-        }else{
-            System.out.println("아쉬워요 ㅠ_ ㅠ 조금만 더 잘한다면...!");
-        }
-
         System.out.println();
 
-        return result;
+        if(strikeCount == ballCount){
+            System.out.println("축하합니다!! 당신이 이겼어요~~! \\^0 ^/");
+            finish();
+        }
+
+        return strikeCount + failCount;
     }
 
     // 공 출력
