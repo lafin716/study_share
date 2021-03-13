@@ -1,3 +1,4 @@
+package java_test.gone;
 
 public class Exam01{
 
