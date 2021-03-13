@@ -4,3 +4,4 @@
 
 # 예제 목록
 - [별 찍기](StarPrint.java) : 안해본 사람 없을만큼 기본인 별찍기
+- [야구게임](BaseballGame.java) : 자바로 구현한 야구게임~
