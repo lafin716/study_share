@@ -3,5 +3,5 @@
 - README.md 파일에 스터디한 내용 잘 정리해놓기
 
 ## lafin
-
+- [자바 스터디](./java/lafin/README.md)
 ## gon
