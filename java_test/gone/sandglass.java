@@ -4,20 +4,21 @@ package java_test.gone;
 public class sandglass {
     public static void main(String[] args) {
         /* 
-         * int i 피라미드 행
-         * int j 피라미드 열
+         * int i 모래시계 행
+         * int j 모래시계 열
          * 
          * i에서 i+1 만큼 최대 5까지 증가한다.
          * 별의 구성은 다음과 같다. (5-3-1-1-3-5)
          * 
-         * 피라미드는 좌우 띄어쓰기로 정가운데로 출력되며 다음과 같은 규칙을 같는다.
-         * 출력되는 행의 시작 열과 마지막 열은 반드시 띄어씌기가 출력된다.
-         * 띄어쓰기가 포함된 구성은 다음과 같다.(7-5-3-3-5-7)
-         */      
+         */
+
+         // 모래시계  행 시작
         for(int i=1;i<=6;i++){
+            // 모래 시계 구성에 따라 홀수 행만 출력한다.
             int n = i % 2;
+            // 홀수 행인 경우
             if(n!=0){
-                for(int j=i;j<=7;j++){
+                for(int j=i;j<=5;j++){
                     int m = j % 2;
                     if(m!=0 && (j==i||j==7)){
                         System.out.print("|");
