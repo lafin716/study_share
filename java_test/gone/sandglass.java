@@ -5,28 +5,27 @@ public class sandglass {
     public static void main(String[] args) {
         /* 
          * int i 피라미드 행
-         * i에서 i+1 만큼 최대 10까지 증가한다.
-         */
-        for(int i=1;i<=10;i++){
-            /* int j 피라미드 열
-             * j는 i부터 j+1 만큼 증가한다.
-             * j가 증가함에 따라 조건 값 5와 가까워져 실제 출력되는 별의 수는 감소한다.
-             */
-            if(i<=5){
-                for(int j=i;j<=5;j++){
-                    System.out.print("*");
+         * int j 피라미드 열
+         * 
+         * i에서 i+1 만큼 최대 5까지 증가한다.
+         * 별의 구성은 다음과 같다. (5-3-1-1-3-5)
+         * 
+         * 피라미드는 좌우 띄어쓰기로 정가운데로 출력되며 다음과 같은 규칙을 같는다.
+         * 출력되는 행의 시작 열과 마지막 열은 반드시 띄어씌기가 출력된다.
+         * 띄어쓰기가 포함된 구성은 다음과 같다.(6-5-3-3-5-6)
+         */      
+        for(int i=1;i<=6;i++){
+            int n = i % 2;
+            if(n!=0){
+                for(int j=i;j<=6;j++){
+                    if(){
+                        System.out.print("|");
+                    }else{
+                        System.out.print("*");
+                    }                    
                 }
-            }else{
-            /* int k 피라미드 열
-             * k는 모래시계 모양에 따라 2부터 출력되어야 한다.
-             * 별 출력을 위한 조건은 i가 증가에 비례에 별의 개수가 k+1씩 증가해야 함.
-             * 이때, i는 6부터 시작이므로 k 시작값 2보다 큰 3이 위치하기 위해 i-3 처리
-             */    
-                for(int k=2;k<=i-3;k++){
-                    System.out.print("*");
-                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 }
