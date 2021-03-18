@@ -12,19 +12,20 @@ public class sandglass {
          * 
          */
 
-         // 모래시계  행 시작
-        for(int i=1;i<=6;i++){
+        // 모래시계  행 시작
+        for(int i=0;i<=5;i++){
             // 모래 시계 구성에 따라 홀수 행만 출력한다.
             int n = i % 2;
             // 홀수 행인 경우
             if(n!=0){
+                int m = 0;
                 for(int j=i;j<=5;j++){
-                    int m = j % 2;
-                    if(m!=0 && (j==i||j==7)){
-                        System.out.print("|");
+                    if(j<=m/2){
+                        System.out.print(" ");
                     }else{
                         System.out.print("*");
-                    }                    
+                    }
+                    m ++;
                 }
                 System.out.println();
             }
