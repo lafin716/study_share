@@ -1,4 +1,4 @@
-package java_test.lafin.exam;
+package java.lafin.exam;
 
 /**
  * 입문 기초 별 찍기 클래스

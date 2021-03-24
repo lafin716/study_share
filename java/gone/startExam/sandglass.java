@@ -1,4 +1,4 @@
-package java_test.gone;
+package java.gone.startExam;
 
 /* 모래 시계 찍기 */ 
 public class sandglass {

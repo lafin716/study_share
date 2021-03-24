@@ -1,4 +1,4 @@
-package java_test.lafin.exam;
+package java.lafin.exam;
 
 import java.util.InputMismatchException;
 import java.util.NoSuchElementException;

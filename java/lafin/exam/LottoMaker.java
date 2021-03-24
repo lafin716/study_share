@@ -1,4 +1,4 @@
-package java_test.lafin.exam;
+package java.lafin.exam;
 
 
  // 로또 노드 클래스

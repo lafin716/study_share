@@ -1,4 +1,4 @@
-package java_test.gone;
+package java.gone.startExam;
 
 public class starPrint {
     public static void main(String[] args) {
