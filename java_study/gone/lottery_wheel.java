@@ -31,10 +31,11 @@ public class lottery_wheel {
             // 중복 값 확인을 위한 Array 클래스의 binarySearch(이진탐색트리) 함수 사용.
             // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)
             int arrayCheck = Arrays.binarySearch(num, i);
+            //System.out.println(num);
             System.out.println("arrayCheck::"+arrayCheck);
-            if(num[j] != i){
+            if(arrayCheck < 0){
                 // 랜덤으로 나온 난수 배열 변수에 저장
-                System.out.println("배열 변수 num의 "+j+"번째 저장값:"+num[j]);
+                //System.out.println("배열 변수 num의 "+j+"번째 저장값:"+num[j]);
                 num[j] = i;
             }else{
                 System.out.println("중복 값 건너뜀.");
@@ -42,8 +43,9 @@ public class lottery_wheel {
         }
         // 배열에 저장된 값 출력을 위한 형변환
         System.out.println(Arrays.toString(num));
-
-
+        int i1 = 3;
+        int arrayCheck1 = Arrays.binarySearch(num, i1);
+        System.out.println(arrayCheck1);
         /* java 난수 발생 방법2
          * Lang 패키지 사용
          * Math 클래스 내 Random 함수는 소수점 아래 18 자리까지 가지는 실수형 double형으로 값 반환
