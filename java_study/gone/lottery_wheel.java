@@ -27,7 +27,7 @@ public class lottery_wheel {
         for(int j=0;j<6;j++){
             // 랜덤 숫자는 0~44까지 총 45개가 나올 수 있으나 로또의 숫자에서 0번은 없으므로
             // 더하기 1하여 1~45까지 표시될 수 있도록 처리.
-            i = random.nextInt(8)+1; // 중복 값 체크를 위한 전체 범위 수정 44 → 8
+            i = random.nextInt(8)+1; // 중복 값 체크 로직 확인을 위한 난수 범위 수정 44 → 8
             // 중복 값 확인을 위한 Array 클래스의 binarySearch(이진탐색트리) 함수 사용.
             // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)
             int arrayCheck = Arrays.binarySearch(num, i);
