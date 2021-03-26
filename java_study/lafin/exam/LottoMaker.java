@@ -1,8 +1,11 @@
 package java_study.lafin.exam;
 
 
- // 로또 노드 클래스
-// 로또 한줄과 같음
+/**
+ * 로또 클래스
+ * 로또 한 줄을 생성할 수 있는 클래스
+ * @author lafin
+ */
 class Lotto{
     private final int MIN_NUM = 1;
     private final int MAX_NUM = 45;
@@ -18,10 +21,10 @@ class Lotto{
 
     // 번호 생성
     public int[] generate(){
-        
+
         // 배열 갯수만큼 반복하면서 랜덤한 수를 생성하여 중복되지않게 배열에 저장
         for(int i=0; i<DEFAULT_LENGTH; i++){
-            
+
             // 임시변수를 선언하여 중복여부 검사
             int tmpNumber = getRandomNumber();
             if(isContains(tmpNumber)){
@@ -62,7 +65,7 @@ class Lotto{
 
     // 숫자들 오름차순 정렬
     private void sort(){
-        
+
         // 정렬은 버블정렬로 진행
         while(true){
             boolean notChanged = true;
@@ -104,6 +107,11 @@ class Lotto{
     }
 }
 
+/**
+ * 로또 생성기 클래스
+ * 로또는 한장당 5줄이고 해당 클래스에서 Lotto 클래스를 이용하여 한장을 출력한다.
+ * @author lafin
+ */
 public class LottoMaker {
 
     // 한장당 로또 수
@@ -131,12 +139,12 @@ public class LottoMaker {
 
     // 로또 출력
     public void print(){
-        
+
         System.out.println("####### 로또 번호 생성기 ######");
         for(int i=0; i<lottoList.length; i++){
             Lotto lotto = lottoList[i];
             System.out.print(currentRow++ + " : ");
-            lotto.print(); 
+            lotto.print();
         }
         System.out.println("###############################");
         System.out.println("부자되세요~ >_ ㅎ");
