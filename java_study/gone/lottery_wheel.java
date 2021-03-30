@@ -28,24 +28,27 @@ public class lottery_wheel {
             // 랜덤 숫자는 0~44까지 총 45개가 나올 수 있으나 로또의 숫자에서 0번은 없으므로
             // 더하기 1하여 1~45까지 표시될 수 있도록 처리.
             i = random.nextInt(8)+1; // 중복 값 체크 로직 확인을 위한 난수 범위 수정 44 → 8
-            // 중복 값 확인을 위한 Array 클래스의 binarySearch(이진탐색트리) 함수 사용.
-            // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)
-            int arrayCheck = Arrays.binarySearch(num, i);
-            //System.out.println(num);
-            System.out.println("arrayCheck::"+arrayCheck);
-            if(arrayCheck < 0){
+            
+            /* 배열 내 매칭 관련 함수
+             * Array 클래스의 binarySearch(이진탐색트리) 함수
+             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)
+             * Stream 클래스의 anyMatch 함수
+             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html#anyMatch(java.util.function.Predicate)
+             * String 클래스의 Contains 함수
+             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)
+             */
+            
+            String t = Integer.toString(i);
+            boolean arrayCheck = num.toString().contains(t);
+
+            if(arrayCheck != false){
                 // 랜덤으로 나온 난수 배열 변수에 저장
-                //System.out.println("배열 변수 num의 "+j+"번째 저장값:"+num[j]);
                 num[j] = i;
-            }else{
-                System.out.println("중복 값 건너뜀.");
             }
         }
         // 배열에 저장된 값 출력을 위한 형변환
         System.out.println(Arrays.toString(num));
-        int i1 = 3;
-        int arrayCheck1 = Arrays.binarySearch(num, i1);
-        System.out.println(arrayCheck1);
+
         /* java 난수 발생 방법2
          * Lang 패키지 사용
          * Math 클래스 내 Random 함수는 소수점 아래 18 자리까지 가지는 실수형 double형으로 값 반환
