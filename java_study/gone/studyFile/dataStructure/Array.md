@@ -11,7 +11,7 @@
 ---
 - 배열 선언
 ```java
-int[5] num = new num();
+int[] num = new num(5);
 ```
 - 정수형 배열
 ```java
