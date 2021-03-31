@@ -3,7 +3,7 @@ package java_study.gone;
 //https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/package-summary.html
 import java.util.Random;
 //https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html
-import java.util.Arrays;
+import java.util.HashSet;
 
 public class lottery_wheel {
     public static void main(String[] args) {
@@ -20,34 +20,26 @@ public class lottery_wheel {
          * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Random.html#nextInt()
          */ 
         Random random = new Random();
-        // 랜덤으로 추출한 숫자를 저장할 배열 변수 선언
-        int[] num = new int[6];
-        int i = 0;
-        // 배열 num에 랜덤으로 추출한 값 추가
-        for(int j=0;j<6;j++){
-            // 랜덤 숫자는 0~44까지 총 45개가 나올 수 있으나 로또의 숫자에서 0번은 없으므로
-            // 더하기 1하여 1~45까지 표시될 수 있도록 처리.
-            i = random.nextInt(8)+1; // 중복 값 체크 로직 확인을 위한 난수 범위 수정 44 → 8
-            
-            /* 배열 내 매칭 관련 함수
-             * Array 클래스의 binarySearch(이진탐색트리) 함수
-             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html#binarySearch(int%5B%5D,int)
-             * Stream 클래스의 anyMatch 함수
-             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/stream/Stream.html#anyMatch(java.util.function.Predicate)
-             * String 클래스의 Contains 함수
-             * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/String.html#contains(java.lang.CharSequence)
-             */
-            
-            String t = Integer.toString(i);
-            boolean arrayCheck = num.toString().contains(t);
+        
 
-            if(arrayCheck != false){
-                // 랜덤으로 나온 난수 배열 변수에 저장
-                num[j] = i;
+
+        /* java에서 중복 값을 쉽게 제거하는 방법
+         * hashSet 클래스 사용 / 기본적으로 중복 값은 저장하지 않고 넘어간다.
+         * https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/HashSet.html
+         */ 
+        HashSet<Integer> hs = new HashSet<Integer>();
+        // 랜덤 값이 들어갈 변수에 기본값 0 지정
+        int i = 0;
+            // 전체 크기는 6개까지 되도록 반복문 지정
+            while(hs.size()<6){
+                // 난수 생성 단, 난수는 1이상으로 생성되어야 함으로 1을 더하여 0보다 크게 생성되로록하며 
+                // 난수 최대 생성값은 44로 지정한다.
+                i = random.nextInt(44)+1;
+                // 생성된 난수 해쉬세트에 추가
+                hs.add(i);
             }
-        }
-        // 배열에 저장된 값 출력을 위한 형변환
-        System.out.println(Arrays.toString(num));
+        // 결과 값 출력
+        System.out.println(hs);
 
         /* java 난수 발생 방법2
          * Lang 패키지 사용
