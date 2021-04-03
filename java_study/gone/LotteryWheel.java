@@ -3,7 +3,7 @@ package java_study.gone;
 import java.util.Random;
 import java.util.HashSet;
 
-public class lottery_wheel {
+public class LotteryWheel {
     public static void main(String[] args) {
         /* 로또 규칙
          * 1~45까지의 숫자만 나올 수 있다.
